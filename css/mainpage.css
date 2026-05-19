@@ -789,48 +789,48 @@ main .wrapper .tasks-list__element__name {
   font-size: 1.5rem;
   color: #fff;
   line-height: 70px;
-}
-main .wrapper .tasks-list__element__status {
-  padding: 0 1rem;
-  height: 70px;
-  align-content: center;
-}
-main .wrapper .tasks-list__element__status__icon {
-  display: block;
-  width: 25px;
-  height: 25px;
-}
-main .wrapper .tasks-list__element__importance {
-  padding: 0 1rem;
-  height: 70px;
-  align-content: center;
-}
-main .wrapper .tasks-list__element__importance__icon {
-  display: block;
-  width: 25px;
-  height: 25px;
-}
-main .wrapper .tasks-list__element__checkbox {
-  padding: 0 1rem;
-  height: 70px;
-  align-content: center;
   overflow: hidden;
 }
-main .wrapper .tasks-list__element__checkbox__icon-box {
+main .wrapper .tasks-list__element__icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+main .wrapper .tasks-list__element__icons__status {
+  padding: 0 1rem;
+}
+main .wrapper .tasks-list__element__icons__status__icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+main .wrapper .tasks-list__element__icons__importance {
+  padding: 0 1rem;
+}
+main .wrapper .tasks-list__element__icons__importance__icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+main .wrapper .tasks-list__element__icons__checkbox {
+  padding: 0 1rem;
+  overflow: hidden;
+}
+main .wrapper .tasks-list__element__icons__checkbox__icon-box {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   border: 2px solid #fff;
-  overflow: hidden;
 }
-main .wrapper .tasks-list__element__checkbox__icon-box img {
+main .wrapper .tasks-list__element__icons__checkbox__icon-box img {
   display: block;
   width: 100%;
   height: 100%;
   overflow: hidden;
   opacity: 0;
 }
-main .wrapper .tasks-list__element__checkbox__icon-box .checked {
+main .wrapper .tasks-list__element__icons__checkbox__icon-box .checked {
   opacity: 1;
 }
 main .wrapper .tasks-list__element:hover {
@@ -915,15 +915,6 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
     line-height: 100px;
     font-size: 2rem;
   }
-  main .wrapper .tasks-list__element__status {
-    height: 100px;
-  }
-  main .wrapper .tasks-list__element__importance {
-    height: 100px;
-  }
-  main .wrapper .tasks-list__element__checkbox {
-    height: 100px;
-  }
 }
 @media screen and (min-width: 992px) {
   body .elipse {
@@ -940,15 +931,6 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
     height: 120px;
     line-height: 120px;
     font-size: 2.2rem;
-  }
-  main .wrapper .tasks-list__element__status {
-    height: 120px;
-  }
-  main .wrapper .tasks-list__element__importance {
-    height: 120px;
-  }
-  main .wrapper .tasks-list__element__checkbox {
-    height: 120px;
   }
   main .wrapper .task-managment-panels .task-managment-panel .task-manager {
     width: 55px;
@@ -981,15 +963,6 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
   main .wrapper .tasks-list__element__name {
     height: 140px;
     line-height: 140px;
-  }
-  main .wrapper .tasks-list__element__status {
-    height: 140px;
-  }
-  main .wrapper .tasks-list__element__importance {
-    height: 140px;
-  }
-  main .wrapper .tasks-list__element__checkbox {
-    height: 140px;
   }
   main .wrapper .task-managment-panels {
     width: 80%;

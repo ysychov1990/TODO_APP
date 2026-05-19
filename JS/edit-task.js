@@ -64,8 +64,9 @@ let currentlySelectedTask = null;
 let indexOfSelectedTask = null;
 
 const checkForCheckingPermission = (tasksArray, currentCheckbox) => {
+	// Checks if checkbox can be checked or unchecked 
 	for (const task of tasksArray) {
-		let checkbox = task.lastElementChild;
+		let checkbox = task.lastElementChild.lastElementChild;
 		let checkboxIcon = checkbox.firstElementChild.firstElementChild;
 		let currentCheckboxIcon =
 			currentCheckbox.firstElementChild.firstElementChild;
@@ -92,7 +93,7 @@ editButton.addEventListener("click", () => {
 	taskListIsEmpty(tasksToEdit, "No tasks to edit");
 	showCheckboxes(tasksToEdit);
 	let allCheckboxes = document.querySelectorAll(
-		".tasks-list__element__checkbox",
+		".tasks-list__element__icons__checkbox",
 	);
 	allCheckboxes.forEach((checkbox) => {
 		checkbox.addEventListener("click", (e) => {
@@ -102,7 +103,7 @@ editButton.addEventListener("click", () => {
 				let checkboxIcon = checkbox.firstElementChild.firstElementChild;
 
 				checkboxIcon.classList.toggle("checked");
-				let currentTask = e.currentTarget.parentElement;
+				let currentTask = e.currentTarget.parentElement.parentElement;
 				// for (const task of tasksToEdit) {
 				// 	if (
 				// 		task != currentTask &&
@@ -219,31 +220,35 @@ editTaskSaveChangesButton.addEventListener("click", () => {
 
 	const currentlySelectedTaskTitle = currentlySelectedTask.firstElementChild;
 	currentlySelectedTaskTitle.textContent = title;
-
+	let currentlySelectedTaskIcons = currentlySelectedTask.lastElementChild;
 	if (importance) {
 		if (
-			!currentlySelectedTask.querySelector(".tasks-list__element__importance")
+			!currentlySelectedTaskIcons.querySelector(
+				".tasks-list__element__icons__importance",
+			)
 		) {
 			let importanceDiv = document.createElement("div");
 			let img = document.createElement("img");
-			let secondChild = currentlySelectedTask.children[1];
+			let taskStatusIcon = currentlySelectedTaskIcons.firstElementChild;
 
-			importanceDiv.classList.add("tasks-list__element__importance");
-			img.classList.add("tasks-list__element__importance__icon");
+			importanceDiv.classList.add("tasks-list__element__icons__importance");
+			img.classList.add("tasks-list__element__icons__importance__icon");
 			img.setAttribute("src", "img/alert-circle.svg");
 
 			importanceDiv.appendChild(img);
 
-			currentlySelectedTask.insertBefore(importanceDiv, secondChild);
+			currentlySelectedTask.insertBefore(importanceDiv, taskStatusIcon);
 		}
 	} else {
 		if (
-			currentlySelectedTask.querySelector(".tasks-list__element__importance")
+			currentlySelectedTaskIcons.querySelector(
+				".tasks-list__element__icons__importance",
+			)
 		) {
-			let importanceDiv = currentlySelectedTask.querySelector(
-				".tasks-list__element__importance",
+			let importanceDiv = currentlySelectedTaskIcons.querySelector(
+				".tasks-list__element__icons__importance",
 			);
-			currentlySelectedTask.removeChild(importanceDiv);
+			currentlySelectedTaskIcons.removeChild(importanceDiv);
 		}
 	}
 

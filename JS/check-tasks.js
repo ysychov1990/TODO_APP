@@ -55,7 +55,7 @@ checkTasksButtonMainPanel.addEventListener("click", () => {
 	taskListIsEmpty(tasksInProgress, "Nothing to mark as completed");
 	showCheckboxes(tasksInProgress);
 	let allCheckboxes = document.querySelectorAll(
-		".tasks-list__element__checkbox",
+		".tasks-list__element__icons__checkbox",
 	);
 	allCheckboxes.forEach((checkbox) => {
 		checkbox.addEventListener("click", (e) => {
@@ -74,7 +74,7 @@ checkAllButton.addEventListener("click", () => {
 	let checkboxesToCheck = [];
 	let allCheckboxes = [];
 	for (let task of tasksInProgress) {
-		let checkboxImg = task.lastElementChild.firstElementChild.firstElementChild;
+		let checkboxImg = task.lastElementChild.lastElementChild.firstElementChild.firstElementChild;
 		allCheckboxes.push(checkboxImg);
 		if (checkboxImg.classList.contains("checked")) {
 			checkedCheckboxes.push(checkboxImg);
@@ -102,8 +102,8 @@ checkTasksButton.addEventListener("click", () => {
 	// let checkedCheckboxesArray = [];
 	let tasksIndicesArray = [];
 	for (const [index, task] of tasks.entries()) {
-		let checkboxOuterDiv = task.lastElementChild;
-		if (checkboxOuterDiv.classList.contains("tasks-list__element__checkbox")) {
+		let checkboxOuterDiv = task.lastElementChild.lastElementChild;
+		if (checkboxOuterDiv.classList.contains("tasks-list__element__icons__checkbox")) {
 			let checkboxElement =
 				checkboxOuterDiv.firstElementChild.firstElementChild;
 
@@ -123,7 +123,7 @@ checkTasksButton.addEventListener("click", () => {
 	// }
 	for (const taskIndex of tasksIndicesArray) {
 		tasks[taskIndex]
-			.querySelector(".tasks-list__element__status")
+			.querySelector(".tasks-list__element__icons__status")
 			.firstElementChild.setAttribute("src", "img/completed.svg");
 	}
 	editTasksStatus(tasksIndicesArray);
