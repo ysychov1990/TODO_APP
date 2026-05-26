@@ -1,27 +1,3 @@
----
-title: "Dokumentacja Projektu"
-subtitle: "Aplikacja zarządzania zadaniami MyTask"
-author:
-    - "Mateusz Waszyński"
-    - "Yevhen Sychov"
-    - "Damian Włodarczyk"
-    - "Kacper Zając"
-date: "2026-05-23"
-geometry: margin=2cm
-mainfont: "DejaVu Sans"
-sansfont: "DejaVu Sans"
-fontsize: 12pt
----
-
-# Zasady dobrego UI
-
-Dobre UI powinno odznaczać się między innymi:
-
-1. **Prostotą użytkowania** -- interfejs ma być możliwie prosty, pozbawiony niepotrzebnych funkcji. Pozwala to na skupieniu się na zadaniu.
-2. **Intuicyjność** -- interfejs ma być możliwie logiczny dla użytkownika, wszytkie elementy znajdować się w odpowiednim porządku, a sama aplikacja zachowywać się w sposób przewidywalny.
-3. **Spójność** -- elementy mają się zachowywać tak samo i wykazywać się takimi samymi cechami (np. kolor, napis na elemencie) w całym interfejsie.
-4. **Dostępność** -- interfejs powinien odpowiadać również osobom ze szczególnymi potrzebami. Przykładowo zaimplementowanie możliwości zmiany kontrastu, wielkości tekstu i elementów, możliwości nawigacji za pomocą urządzeń zewnętrznych, czy czytania maszynowego przez aplikacje zewnętrzne.
-
 # Analiza Użytkowników i Persony
 ## Analiza potrzeb i problemów
 Projektowana aplikacja ma na celu rozwiązanie kluczowych problemów, z którymi borykają się użytkownicy w zakresie organizacji czasu i zadań:
