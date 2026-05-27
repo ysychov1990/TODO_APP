@@ -100,9 +100,14 @@ const insertTask = (
 ) => {
 	// Insers a task to the list of tasks
 	let tasks = document.querySelectorAll(".tasks-list__element");
-	if (taskTitle.length == 0) {
-		taskAdditionState.textContent = "Fill in task title";
+	if (taskTitle.trim().length == 0) {
+		taskAdditionState.textContent = "Fill in task title. It can't be empty!";
 		taskAdditionState.style.color = "tomato";
+		return false;
+	} else if (date == "") {
+		taskAdditionState.textContent = "Choose deadline date!";
+		taskAdditionState.style.color = "tomato";
+		return false;
 	} else {
 		//-------------------------Adding task to localStorage------------------------
 		if (toLocalStorage) {
@@ -166,14 +171,18 @@ const insertTask = (
 		if (tasks.length == 0) {
 			tasksListBox.removeChild(tasksListBox.firstElementChild);
 		}
+
 		tasksListBox.appendChild(taskDiv);
 		taskDiv.addEventListener("click", (e) => {
 			showPreviewInfo(e.currentTarget);
 		});
+
 		if (toLocalStorage) {
 			taskAdditionState.textContent = "New task has been created successfully";
 			taskAdditionState.style.color = "lime";
 		}
+
+		return true;
 	}
 };
 
@@ -261,8 +270,17 @@ addNewTaskButton.addEventListener("click", () => {
 	let date = dateInput.value;
 	let important = taskImportance.classList.contains("checked");
 	let status = "in progress";
-	insertTask(taskTitleValue, taskDescriptionValue, date, important, status);
-	clearInputFields();
+	let result = insertTask(
+		taskTitleValue,
+		taskDescriptionValue,
+		date,
+		important,
+		status,
+	);
+
+	if (result) {
+		clearInputFields();
+	}
 });
 
 cancelTaskAdditionButton.addEventListener("click", () => {

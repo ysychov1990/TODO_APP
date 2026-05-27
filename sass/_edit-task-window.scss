@@ -92,11 +92,13 @@
 			width: 100%;
 			display: flex;
 			flex-direction: row;
-			justify-content: space-between;
+			align-items: center;
+			justify-content: space-evenly;
 			padding: 1rem 0;
 			border-bottom: 1px solid colors.$pure-white;
 			margin-bottom: 1rem;
 			&__label {
+				width: 50%;
 				padding-left: 1.5rem;
 				font-size: 1.8rem;
 				color: colors.$pure-white;
@@ -117,6 +119,14 @@
 				.checked {
 					opacity: 1;
 				}
+			}
+			&__info{
+				display: none;
+				width: 40%;
+				text-align: center;
+				color: colors.$pure-white;
+				margin: 0 auto;
+				font-size: 1.4rem;
 			}
 		}
 		&__description {
@@ -190,6 +200,14 @@
 @media screen and (min-width: 768px) {
 	.edit-task__window {
 		height: 60vh;
+		.edit-task{
+			&__importance{
+				justify-content: unset;
+				&__info{
+					display: block;
+				}
+			}
+		}
 	}
 }
 
@@ -210,6 +228,11 @@
 		width: 80%;
 		height: 65vh;
 		.edit-task {
+			&__importance{
+				&__info{
+					font-size: 1.6rem;
+				}
+			}
 			&__buttons {
 				.edit-task__button {
 					width: 20%;

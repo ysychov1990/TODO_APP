@@ -22,13 +22,39 @@
 		</header>
 		<main>
 			<div class="wrapper">
-				<!-- <div class="search-bar">
-					<input
-						type="text"
-						class="search-bar__input inter-normal"
-						placeholder="Search for tasks"
-					/>
-				</div> -->
+				<div class="legend">
+					<div class="legend__element">
+						<img
+							src="img/alert-circle.svg"
+							alt="Ikonka ważnego zadania"
+							class="legend__element__icon"
+						/>
+						<p class="legend__element__description inter-normal">
+							Important Task Icon
+						</p>
+					</div>
+					<div class="legend__element">
+						<img
+							src="img/active-task.svg"
+							alt="Ikonka aktywnego zadania"
+							class="legend__element__icon"
+						/>
+						<p class="legend__element__description inter-normal">
+							Active Task Icon
+						</p>
+					</div>
+					<div class="legend__element">
+						<img
+							src="img/completed.svg"
+							alt="Ikonka zakończonego zadania"
+							class="legend__element__icon"
+						/>
+						<p class="legend__element__description inter-normal">
+							Completed Task Icon
+						</p>
+					</div>
+				</div>
+
 				<div class="task-selectors">
 					<div class="task-selectors__box">
 						<div class="task-selector__item">
@@ -63,64 +89,71 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="tasks-list">
 					<!-- ** Here tasks would be inserted ** -->
 				</div>
 				<p class="selected-tasks-counter inter-normal"></p>
 				<div class="task-managment-panels">
 					<div class="task-managment-panel task-managment-panel__main">
-						<button class="task-manager add-task">
+						<button class="task-manager add-task" title="Add Task">
 							<img src="img/plus-square.svg" alt="Ikona plusa" />
 						</button>
-						<button class="task-manager mark-as-completed">
+						<button
+							class="task-manager mark-as-completed"
+							title="Mark Tasks as Completed"
+						>
 							<img src="img/check-square.svg" alt="Ikona plusa" />
 						</button>
-						<button class="task-manager remove-task">
+						<button class="task-manager remove-task" title="Remove Tasks">
 							<img src="img/minus-square.svg" alt="Ikona minusa" />
 						</button>
-						<button class="task-manager edit-task">
+						<button class="task-manager edit-task" title="Edit Task">
 							<img src="img/edit.svg" alt="Ikona edycji" />
 						</button>
 					</div>
 
 					<div class="task-managment-panel task-managment-panel__checking">
-						<button class="task-manager select-all">
+						<button class="task-manager select-all" title="Select All Tasks">
 							<img
 								src="img/select-all-to-check.svg"
 								alt="Ikonka zaznaczenia wielu zadań"
 							/>
 						</button>
-						<button class="task-manager check-tasks">
+						<button
+							class="task-manager check-tasks"
+							title="Mark Selected Tasks As Completed"
+						>
 							<img src="img/check-save.svg" alt="Ikonka zapisu wyboru " />
 						</button>
-						<button class="task-manager exit">
+						<button class="task-manager exit" title="Exit">
 							<img src="img/exit.svg" alt="Ikonka wyjścia" />
 						</button>
 					</div>
 
 					<div class="task-managment-panel task-managment-panel__removing">
-						<button class="task-manager select-all">
+						<button class="task-manager select-all" title="Select All Tasks">
 							<img
 								src="img/select-all-for-removal.svg"
 								alt="Ikonka zaznaczenia wielu zadań "
 							/>
 						</button>
-						<button class="task-manager remove-tasks">
+						<button class="task-manager remove-tasks" title="Remove Tasks">
 							<img src="img/trash-bin.svg" alt="Ikonka usunięcia zadań" />
 						</button>
-						<button class="task-manager exit">
+						<button class="task-manager exit" title="Exit">
 							<img src="img/exit.svg" alt="Ikonka wyjścia" />
 						</button>
 					</div>
 
 					<div class="task-managment-panel task-managment-panel__editing">
-						<button class="task-manager start-editing">
+						<button class="task-manager start-editing" title="Start Editing">
 							<img
 								src="img/start-editing.svg"
 								alt="Ikonka rozpoczęcia edycji"
 							/>
 						</button>
-						<button class="task-manager exit">
+						<button class="task-manager exit" title="Exit">
 							<img src="img/exit.svg" alt="Ikonka wyjścia" />
 						</button>
 					</div>
@@ -237,6 +270,10 @@
 							class="edit-task__importance__checkbox__icon"
 						/>
 					</div>
+					<p class="edit-task__importance__info inter-normal">
+						Check/Uncheck this checkbox to change task's importance (Checked =
+						Important Task | Unchecked = Regular Task)
+					</p>
 				</div>
 				<div class="edit-task__description">
 					<label
