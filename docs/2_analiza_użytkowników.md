@@ -4,11 +4,11 @@ Projektowana aplikacja ma na celu rozwiązanie kluczowych problemów, z którymi
 
 - **Rozproszenie informacji**: Użytkownicy często przechowują listę zadań w wielu miejscach (notatki, maile, pamięć), co prowadzi do przeoczenia ważnych terminów.
 - **Trudność w priorytetyzacji**: Brak jasnego rozróżnienia między zadaniami pilnymi a tymi, które mogą zostać wykonane później.
-- **Przeładowanie funkcjonalne**: Wiele istniejących narzędzi jest zbyt skomplikowanych, co zniechęca do ich systematycznego używania. Nasza aplikacja stawia na prostotę i intuicyjność.
+- **Przeładowanie funkcjonalne**: Istniejące narzędzia często są zbyt skomplikowane, co zniechęca do ich systematycznego używania. Nasza aplikacja stawia na prostotę i intuicyjność.
 
 ## Persony Użytkowników
 ### Persona 1: Zorganizowany Student
-Persona jest studentem informatyki, dorabiająca jako freelancer. Ma napięty grafik, wykonuje zadania w związku ze swoją edukacją. Żongluje terminami uczelnianymi oraz projektami dla klientów. Jest techniczny, tworzy prace indywidualne oraz grupowe. Dysponuje wieczorami kilkoma godzinami wolnego czasu dziennie. Ma dostęp do urządzenia mobilnego, laptopa osobistego oraz komputera stacjonarnego w pracy.
+Persona jest studentem informatyki, dorabiającym jako freelancer. Ma napięty grafik, wykonuje zadania w związku ze swoją edukacją. Żongluje terminami uczelnianymi oraz projektami dla klientów. Jest umysłem ścisłym, wykonuje zadania indywidualne oraz grupowe. Dysponuje wieczorami kilkoma godzinami wolnego czasu dziennie. Preferuje korzystać z laptopa osobistego oraz komputera stacjonarnego w pracy.
 
 Potrzeby:
 
@@ -19,7 +19,7 @@ Potrzeby:
 Główny cel: Skuteczne zarządzanie wieloma projektami jednocześnie bez nakładania się terminów.
 
 ### Persona 2: Pracownik Biurowy
-Persona pracująca na dziale administracji/marketingu. Codziennie otrzymuje dziesiątki drobnych zadań od różnych współpracowników. Pracuje w biurze, często w szumie i pod dużą presją czasu. Ma dostęp do telefonu, komputera na stanowisku roboczym.
+Persona pracująca w dziale administracji/marketingu. Codziennie otrzymuje dziesiątki drobnych zadań od różnych współpracowników. Pracuje w biurze, często w szumie i pod dużą presją czasu. Ma dostęp do telefonu, komputera na stanowisku roboczym.
 
 Potrzeby:
 
@@ -30,7 +30,7 @@ Potrzeby:
 Główny cel: Uporządkowanie chaosu dnia pracy i pewność, że żadne kluczowe zadanie nie zostało pominięte przed wyjściem z biura.
 
 ### Persona 3: Osoba przygotowująca uroczystość:
-Jest to osoba w wieku 30 – 50 lat, aktywna zawodowo, posiadająca rodzinę, której zadaniem jest przygotowanie ważnej uroczystości. Wydarzenia można podzielić m. in. na uroczystości rodzinne, jak ślub, wydarzenia związane z pracą zawodową, jak konferencje, szkolenia, lub aktywności społeczne.
+Jest to osoba w wieku 30 – 50 lat, aktywna zawodowo, posiadająca rodzinę, której zadaniem jest przygotowanie ważnej uroczystości. Wydarzenia można podzielić m.in. na uroczystości rodzinne, jak ślub, wydarzenia związane z pracą zawodową, jak konferencje, szkolenia, lub aktywności społeczne.
 
 Potrzeby:
 
@@ -38,4 +38,4 @@ Potrzeby:
 - Częste przenoszenie lub zmiana terminów wykonania zadań.
 - Koordynacja i zarządzanie zadaniami "w biegu" z urządzenia mobilnego.
 
-Glowny cel: Koordynacja mobilna, łatwe dostosowywanie planu, monitorowanie postępów w różnych kategoriach.
+Główny cel: Koordynacja mobilna, łatwe dostosowywanie planu, monitorowanie postępów w różnych kategoriach.

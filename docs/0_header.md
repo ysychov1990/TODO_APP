@@ -1,4 +1,5 @@
 ---
+lang: pl-PL
 title: "Dokumentacja Projektu"
 subtitle: "Aplikacja zarządzania zadaniami MyTask"
 author:
@@ -11,5 +12,7 @@ geometry: margin=2cm
 mainfont: "DejaVu Sans"
 sansfont: "DejaVu Sans"
 fontsize: 12pt
+colorlinks: true
+linkcolor: blue
 ---
 
