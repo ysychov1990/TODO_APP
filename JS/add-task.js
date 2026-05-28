@@ -57,6 +57,7 @@ let taskPreviewDescription = document.querySelector(
 );
 
 const showPreviewInfo = (task) => {
+	// Shows the task preview of clicked task
 	let tasks = document.querySelectorAll(".tasks-list__element");
 	const index = Array.from(tasks).indexOf(task);
 	const clickedTaskInfo = getTaskInfo(index);
@@ -72,6 +73,7 @@ const showPreviewInfo = (task) => {
 };
 
 const setPreviewInfo = (taskTitle, taskDescription, date, important) => {
+	// Sets the info for the task preview
 	let date_elements = date.split("-");
 	let proper_date_format = `${date_elements[2]}.${date_elements[1]}.${date_elements[0]}`;
 
@@ -96,10 +98,16 @@ const insertTask = (
 	status,
 	toLocalStorage = true,
 ) => {
+	// Insers a task to the list of tasks
 	let tasks = document.querySelectorAll(".tasks-list__element");
-	if (taskTitle.length == 0) {
-		taskAdditionState.textContent = "Fill in task title";
+	if (taskTitle.trim().length == 0) {
+		taskAdditionState.textContent = "Fill in task title. It can't be empty!";
 		taskAdditionState.style.color = "tomato";
+		return false;
+	} else if (date == "") {
+		taskAdditionState.textContent = "Choose deadline date!";
+		taskAdditionState.style.color = "tomato";
+		return false;
 	} else {
 		//-------------------------Adding task to localStorage------------------------
 		if (toLocalStorage) {
@@ -108,20 +116,22 @@ const insertTask = (
 
 		//-------------------------Task elmement creation-----------------------------
 		let taskDiv = document.createElement("div");
+		let iconsDiv = document.createElement("div");
 		let statusDiv = document.createElement("div");
 		let importanceDiv = null;
 		let h3 = document.createElement("h3");
 		let imgStatus = document.createElement("img");
 
 		taskDiv.classList.add("tasks-list__element");
-		statusDiv.classList.add("tasks-list__element__status");
+		iconsDiv.classList.add("tasks-list__element__icons");
+		statusDiv.classList.add("tasks-list__element__icons__status");
 
 		h3.textContent = taskTitle;
 		h3.classList.add("tasks-list__element__name");
 		h3.classList.add("inter-bold");
 		// p.textContent = taskTitle;
 
-		imgStatus.classList.add("tasks-list__element__status__icon");
+		imgStatus.classList.add("tasks-list__element__icons__status__icon");
 
 		if (status == "in progress") {
 			taskDiv.classList.add("in-progress");
@@ -139,8 +149,10 @@ const insertTask = (
 			importanceDiv = document.createElement("div");
 			let imgImportance = document.createElement("img");
 
-			importanceDiv.classList.add("tasks-list__element__importance");
-			imgImportance.classList.add("tasks-list__element__importance__icon");
+			importanceDiv.classList.add("tasks-list__element__icons__importance");
+			imgImportance.classList.add(
+				"tasks-list__element__icons__importance__icon",
+			);
 			imgImportance.setAttribute("src", "img/alert-circle.svg");
 			imgImportance.setAttribute(
 				"alt",
@@ -150,22 +162,27 @@ const insertTask = (
 		}
 
 		if (importanceDiv) {
-			taskDiv.appendChild(importanceDiv);
+			iconsDiv.appendChild(importanceDiv);
 		}
-		taskDiv.appendChild(statusDiv);
+		iconsDiv.appendChild(statusDiv);
+		taskDiv.appendChild(iconsDiv);
 		//Final element creation step
 
 		if (tasks.length == 0) {
 			tasksListBox.removeChild(tasksListBox.firstElementChild);
 		}
+
 		tasksListBox.appendChild(taskDiv);
 		taskDiv.addEventListener("click", (e) => {
 			showPreviewInfo(e.currentTarget);
 		});
+
 		if (toLocalStorage) {
 			taskAdditionState.textContent = "New task has been created successfully";
 			taskAdditionState.style.color = "lime";
 		}
+
+		return true;
 	}
 };
 
@@ -188,6 +205,7 @@ const hideAddTaskWindow = () => {
 };
 
 const clearInputFields = () => {
+	// Clears all the input's data
 	let taskTitle = document.querySelector(".new-task .new-task__title__input");
 	let taskDescription = document.querySelector(
 		".new-task .new-task__description__textarea",
@@ -204,6 +222,7 @@ const clearInputFields = () => {
 };
 
 const setStateAsFillingInfo = () => {
+	// Sets task's adding state as "Filling in information"
 	if (taskAdditionState.textContent != "Filling in information") {
 		taskAdditionState.textContent = "Filling in information";
 		taskAdditionState.style.color = "#fff";
@@ -251,8 +270,17 @@ addNewTaskButton.addEventListener("click", () => {
 	let date = dateInput.value;
 	let important = taskImportance.classList.contains("checked");
 	let status = "in progress";
-	insertTask(taskTitleValue, taskDescriptionValue, date, important, status);
-	clearInputFields();
+	let result = insertTask(
+		taskTitleValue,
+		taskDescriptionValue,
+		date,
+		important,
+		status,
+	);
+
+	if (result) {
+		clearInputFields();
+	}
 });
 
 cancelTaskAdditionButton.addEventListener("click", () => {
@@ -278,7 +306,8 @@ taskTitle.addEventListener("focus", () => {
 	setStateAsFillingInfo();
 });
 
-//This event listener handles clicking outside many of the windows (clicking in shadow element). This is an exception from the rule of putting event listeners in proper files depending on the section/window
+//This event listener handles clicking outside many of the windows (clicking in shadow element).
+// This is an exception from the rule of putting event listeners in proper files depending on the section/window
 shadow.addEventListener("click", () => {
 	if (addTaskWindow.classList.contains("add-task__window__show")) {
 		clearInputFields();

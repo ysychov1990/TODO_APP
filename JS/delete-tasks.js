@@ -42,6 +42,7 @@ let exitButton = document.querySelector(
 let completedTasks = [];
 
 const showAllExceptActive = () => {
+	// Shows all the tasks except these which are active and returns them
 	let tasks = document.querySelectorAll(".tasks-list__element");
 	let completedTasks = [];
 	for (const task of tasks) {
@@ -68,7 +69,7 @@ removeButtonMainPanel.addEventListener("click", () => {
 	taskListIsEmpty(completedTasks, "Nothing to delete");
 	showCheckboxes(completedTasks);
 	let allCheckboxes = document.querySelectorAll(
-		".tasks-list__element__checkbox",
+		".tasks-list__element__icons__checkbox",
 	);
 	allCheckboxes.forEach((checkbox) => {
 		checkbox.addEventListener("click", (e) => {
@@ -86,7 +87,7 @@ selectAllButton.addEventListener("click", () => {
 	let checkboxesToCheck = [];
 	let allCheckboxes = [];
 	for (let task of completedTasks) {
-		let checkboxImg = task.lastElementChild.firstElementChild.firstElementChild;
+		let checkboxImg = task.lastElementChild.lastElementChild.firstElementChild.firstElementChild;
 		allCheckboxes.push(checkboxImg);
 		if (checkboxImg.classList.contains("checked")) {
 			checkedCheckboxes.push(checkboxImg);
@@ -113,8 +114,8 @@ removeButton.addEventListener("click", () => {
 	let tasksToDeleteIndices = [];
 	let tasks = document.querySelectorAll(".tasks-list__element");
 	for (const [index, task] of tasks.entries()) {
-		let checkboxOuterDiv = task.lastElementChild;
-		if (checkboxOuterDiv.classList.contains("tasks-list__element__checkbox")) {
+		let checkboxOuterDiv = task.lastElementChild.lastElementChild;
+		if (checkboxOuterDiv.classList.contains("tasks-list__element__icons__checkbox")) {
 			let checkboxElement =
 				checkboxOuterDiv.firstElementChild.firstElementChild;
 

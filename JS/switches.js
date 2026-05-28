@@ -29,7 +29,7 @@ const handleSwitch = (currentSwitch) => {
 };
 
 const checkAcivationPermission = (switchList, currentSwitch) => {
-	//Checks if any other switch is active and returns the allowance for activation
+	//Checks if any other switch is active and returns permission or prohibition for activation
 	let allow_for_action = true;
 	switchList.forEach((element) => {
 		if (element.classList.contains("active") && element != currentSwitch) {
@@ -39,7 +39,7 @@ const checkAcivationPermission = (switchList, currentSwitch) => {
 	return allow_for_action;
 };
 const blockOrUnblock = (allSwitches, currentSwitch) => {
-	//Disables the possibility to enable other switches if any of the switches is active
+	//Disables the possibility to enable other switches, if any of the switches is active
 	if (currentSwitch.classList.contains("active")) {
 		allSwitches.forEach((element) => {
 			element.classList.remove("disabled");
@@ -54,11 +54,12 @@ const blockOrUnblock = (allSwitches, currentSwitch) => {
 };
 
 const handleImportantTasksFilter = (tasksArray, textWhenEmptyArray) => {
+	// One of functions of the set of functions for important filter / switch
 	let tasksToHide = [];
 	if (importantSwitch.classList.contains("active")) {
 		for (const task of tasksArray) {
 			if (
-				!task.children[1].classList.contains("tasks-list__element__importance")
+				!task.lastElementChild.children[0].classList.contains("tasks-list__element__icons__importance")
 			) {
 				tasksToHide.push(task);
 			}
@@ -78,6 +79,7 @@ const handleImportantTasksFilter = (tasksArray, textWhenEmptyArray) => {
 };
 
 const handleActiveTasksFilter = (tasksArray, textWhenEmptyArray) => {
+	// A set of instructions to run for active filter / switch
 	let tasksToHide = [];
 	if (activeSwitch.classList.contains("active")) {
 		for (const task of tasksArray) {
@@ -100,6 +102,7 @@ const handleActiveTasksFilter = (tasksArray, textWhenEmptyArray) => {
 };
 
 const handleCompletedTasksFilter = (tasksArray, textWhenEmptyArray) => {
+	// A set of instructions to run for completed filter / switch
 	let tasksToHide = [];
 	if (completedSwitch.classList.contains("active")) {
 		for (const task of tasksArray) {
@@ -128,6 +131,7 @@ const functionsForImportantFilter = (
 	sectionName,
 	textWhenEmptyArray,
 ) => {
+	// A set of functions to execute for the important filter / switch depending on the section it operates in
 	if (sectionName == "main") {
 		let permission = checkAcivationPermission(allSwitches, importantSwitch);
 		if (permission) {
@@ -147,6 +151,7 @@ export const attachListenerToImportantFilter = (
 	sectionName,
 	textWhenEmptyArray,
 ) => {
+	// Attaches event listener to the important filter/switch with set of functions to execute 
 	currentImportantSwitchListener = () => {
 		functionsForImportantFilter(tasksArray, sectionName, textWhenEmptyArray);
 	};
@@ -154,6 +159,7 @@ export const attachListenerToImportantFilter = (
 };
 
 export const removeListenerFromImportantFilter = () => {
+	//Removes event listener from the important filter / switch 
 	importantSwitch.removeEventListener("click", currentImportantSwitchListener);
 };
 
