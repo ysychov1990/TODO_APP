@@ -1,18 +1,16 @@
-$background-color: #0b0b13;
-$pure-white: #fff;
-$pitch-black: #000;
-$subtitle: #a1a1aa;
-$search-gradient: linear-gradient(90deg, #303059 0%, #6666bf 100%);
-$task-gradient: linear-gradient(90deg, #4b4b8e 0%, #151528 100%);
-$elipse-gradient: linear-gradient(
-	180deg,
-	rgba(50, 50, 94, 0.15) 4.81%,
-	rgba(155, 155, 253, 0.15) 82.69%
-);
-$active-button: #7fbd62;
-$switches-border: #7c5cff;
-$add-window-borders: rgba(255, 255, 255, 0.5);
-$glow: #80b3ff;
-$input-background: #121547;
-$cancel-button: #e14b3e;
-$accept-button: #73aa6e;
+@use "themes";
+
+$background-color: var(--background-color);
+$pure-white: var(--pure-white);
+$pitch-black: var(--pitch-black);
+$subtitle: var(--subtitle);
+$search-gradient: var(--search-gradient);
+$task-gradient: var(--tast-gradient);
+$elipse-gradient: var(--elipse-gradient);
+$active-button: var(--active-button);
+$switches-border: var(--switches-border);
+$add-window-borders: var(--add-window-borders);
+$glow: var(--glow);
+$input-background: var(--input-background);
+$cancel-button: var(--cancel-button);
+$accept-button: var(--accept-button);

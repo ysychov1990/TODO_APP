@@ -6,3 +6,4 @@ import "./check-tasks.js";
 import "./delete-tasks.js";
 import "./edit-task.js";
 import "./task-preview.js";
+import "./theme-switcher.js";

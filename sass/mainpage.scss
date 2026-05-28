@@ -61,6 +61,30 @@ header {
 		font-weight: 400;
 		letter-spacing: -0.34px;
 	}
+    .theme-switcher {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 5px;
+        margin: 5px auto 5px auto;
+        width: 80%;
+
+        label {
+            color: colors.$pure-white;
+            font-family: "Inter", sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            letter-spacing: -0.34px;
+        }
+        select {
+            //padding: 5px;
+            border-radius: 4px;
+            background: colors.$input-background;
+            color: colors.$pure-white;
+            border: 1px solid colors.$switches-border;
+        }
+    }
 }
 main {
 	display: flex;
