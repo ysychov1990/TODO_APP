@@ -14,5 +14,10 @@ sansfont: "DejaVu Sans"
 fontsize: 12pt
 colorlinks: true
 linkcolor: blue
+
+header-includes:
+    - \usepackage{graphicx}
+    - \usepackage{enumitem}
+#    - \usepackage{column}
 ---
 
