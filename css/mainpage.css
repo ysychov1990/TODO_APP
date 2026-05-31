@@ -18,6 +18,7 @@
   --cancel-button: #e14b3e;
   --accept-button: #73aa6e;
   --panel-buttons-inversion: 0;
+  --selector-background-color: #333;
 }
 
 [data-theme=light] {
@@ -43,6 +44,7 @@
   --cancel-button: #e14b3e;
   --accept-button: #73aa6e;
   --panel-buttons-inversion: 1;
+  --selector-background-color: #aaa;
 }
 
 [data-theme=contrast] {
@@ -65,6 +67,7 @@
   --cancel-button: #e14b3e;
   --accept-button: #73aa6e;
   --panel-buttons-inversion: 0;
+  --selector-background-color: #fff;
 }
 
 .inter-normal {
@@ -839,7 +842,7 @@ main .wrapper .task-selectors__box .task-selector__item__button {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  background-color: #333;
+  background-color: var(--selector-background-color);
   border: 2px solid #7c5cff;
   transition: background-color 0.3s;
 }

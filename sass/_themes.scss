@@ -19,6 +19,7 @@
     --cancel-button: #e14b3e;
     --accept-button: #73aa6e;
     --panel-buttons-inversion: 0; // do not invert button colors
+    --selector-background-color: #333;
 }
 
 [data-theme="light"] {
@@ -46,6 +47,7 @@
     --cancel-button: #e14b3e;
     --accept-button: #73aa6e;
     --panel-buttons-inversion: 1; // invert button colors
+    --selector-background-color: #aaa;
 }
 
 
@@ -69,4 +71,5 @@
     --cancel-button: #e14b3e;
     --accept-button: #73aa6e;
     --panel-buttons-inversion: 0; // do not invert button colors
+    --selector-background-color: #fff;
 }

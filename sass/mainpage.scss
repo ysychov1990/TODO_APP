@@ -172,7 +172,7 @@ main {
 						display: flex;
 						flex-direction: column;
 						border-radius: 20px;
-						background-color: #333;
+						background-color: colors.$selector-background-color;
 						border: 2px solid #7c5cff;
 						transition: background-color 0.3s;
 						&__switch {
