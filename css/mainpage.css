@@ -17,6 +17,7 @@
   --input-background: #121547;
   --cancel-button: #e14b3e;
   --accept-button: #73aa6e;
+  --panel-buttons-inversion: 0;
 }
 
 [data-theme=light] {
@@ -41,6 +42,7 @@
   --input-background: #a1a1a1;
   --cancel-button: #e14b3e;
   --accept-button: #73aa6e;
+  --panel-buttons-inversion: 1;
 }
 
 [data-theme=contrast] {
@@ -62,6 +64,7 @@
   --input-background: #000000;
   --cancel-button: #e14b3e;
   --accept-button: #73aa6e;
+  --panel-buttons-inversion: 0;
 }
 
 .inter-normal {
@@ -1002,6 +1005,7 @@ main .wrapper .task-managment-panels .task-managment-panel .task-manager img {
   display: block;
   width: 100%;
   height: 100%;
+  filter: invert(var(--panel-buttons-inversion));
 }
 main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel__checking {
   display: none;
