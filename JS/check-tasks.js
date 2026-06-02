@@ -4,6 +4,7 @@ import {
 } from "./switches.js";
 
 import {
+	userGuidanceMessaage,
 	taskManagmentPanelMain,
 	showCheckboxes,
 	hideCheckboxes,
@@ -57,6 +58,10 @@ checkTasksButtonMainPanel.addEventListener("click", () => {
 	let allCheckboxes = document.querySelectorAll(
 		".tasks-list__element__icons__checkbox",
 	);
+	userGuidanceMessaage.textContent =
+		"Check Checkboxes (white circles) of tasks that you want to mark as completed";
+	userGuidanceMessaage.style.opacity = 1;
+
 	allCheckboxes.forEach((checkbox) => {
 		checkbox.addEventListener("click", (e) => {
 			checkbox.firstElementChild.firstElementChild.classList.toggle("checked");
@@ -74,7 +79,9 @@ checkAllButton.addEventListener("click", () => {
 	let checkboxesToCheck = [];
 	let allCheckboxes = [];
 	for (let task of tasksInProgress) {
-		let checkboxImg = task.lastElementChild.lastElementChild.firstElementChild.firstElementChild;
+		let checkboxImg =
+			task.lastElementChild.lastElementChild.firstElementChild
+				.firstElementChild;
 		allCheckboxes.push(checkboxImg);
 		if (checkboxImg.classList.contains("checked")) {
 			checkedCheckboxes.push(checkboxImg);
@@ -103,7 +110,11 @@ checkTasksButton.addEventListener("click", () => {
 	let tasksIndicesArray = [];
 	for (const [index, task] of tasks.entries()) {
 		let checkboxOuterDiv = task.lastElementChild.lastElementChild;
-		if (checkboxOuterDiv.classList.contains("tasks-list__element__icons__checkbox")) {
+		if (
+			checkboxOuterDiv.classList.contains(
+				"tasks-list__element__icons__checkbox",
+			)
+		) {
 			let checkboxElement =
 				checkboxOuterDiv.firstElementChild.firstElementChild;
 
@@ -143,6 +154,8 @@ exitButton.addEventListener("click", () => {
 	taskManagmentPanelMain.style.display = "flex";
 	selectedTaskCounterElement.textContent = "";
 	selectedTaskCounterElement.style.padding = 0;
+	userGuidanceMessaage.style.opacity = 0;
+	userGuidanceMessaage.textContent = "";
 	hideCheckboxes();
 	deactivateAllSwitches();
 	removeListenerFromImportantFilter();

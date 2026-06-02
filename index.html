@@ -10,26 +10,33 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="css/mainpage.css" />
 	</head>
 	<body>
 		<header>
+			<div class="theme-switcher">
+				<!-- <label for="theme-select" class="theme-label inter-normal"
+					>Theme Selection</label
+				> -->
+				<select id="theme-select" class="theme-select inter-normal">
+					<option value="dark" class="theme-select__option">Dark</option>
+					<option value="light" class="theme-select__option">Light</option>
+					<option value="contrast" class="theme-select__option">
+						Contrast
+					</option>
+				</select>
+			</div>
 			<h1>MyTask</h1>
 			<h2>Organize your workflow smarter</h2>
-            <div class="theme-switcher">
-                <label for="theme-select">Theme:</label>
-                <select id="theme-select">
-                    <option value="dark">Dark</option>
-                    <option value="light">Light</option>
-                    <option value="contrast">Contrast</option>
-            </select>
-        </div>
 		</header>
 		<main>
 			<div class="wrapper">
+				<div class="user-guidance">
+					<p class="user-guidance__message raleway-black"></p>
+				</div>
 				<div class="legend">
 					<div class="legend__element">
 						<img

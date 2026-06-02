@@ -4,6 +4,7 @@ import {
 } from "./switches.js";
 
 import {
+	userGuidanceMessaage,
 	taskManagmentPanelMain,
 	showCheckboxes,
 	hideCheckboxes,
@@ -67,6 +68,10 @@ removeButtonMainPanel.addEventListener("click", () => {
 		"Nothing to delete",
 	);
 	taskListIsEmpty(completedTasks, "Nothing to delete");
+	userGuidanceMessaage.textContent =
+		"Check Checkboxes (white circles) of tasks that you want to remove";
+
+	userGuidanceMessaage.style.opacity = 1;
 	showCheckboxes(completedTasks);
 	let allCheckboxes = document.querySelectorAll(
 		".tasks-list__element__icons__checkbox",
@@ -87,7 +92,9 @@ selectAllButton.addEventListener("click", () => {
 	let checkboxesToCheck = [];
 	let allCheckboxes = [];
 	for (let task of completedTasks) {
-		let checkboxImg = task.lastElementChild.lastElementChild.firstElementChild.firstElementChild;
+		let checkboxImg =
+			task.lastElementChild.lastElementChild.firstElementChild
+				.firstElementChild;
 		allCheckboxes.push(checkboxImg);
 		if (checkboxImg.classList.contains("checked")) {
 			checkedCheckboxes.push(checkboxImg);
@@ -115,7 +122,11 @@ removeButton.addEventListener("click", () => {
 	let tasks = document.querySelectorAll(".tasks-list__element");
 	for (const [index, task] of tasks.entries()) {
 		let checkboxOuterDiv = task.lastElementChild.lastElementChild;
-		if (checkboxOuterDiv.classList.contains("tasks-list__element__icons__checkbox")) {
+		if (
+			checkboxOuterDiv.classList.contains(
+				"tasks-list__element__icons__checkbox",
+			)
+		) {
 			let checkboxElement =
 				checkboxOuterDiv.firstElementChild.firstElementChild;
 
@@ -145,6 +156,8 @@ exitButton.addEventListener("click", () => {
 	hideCheckboxes();
 	selectedTaskCounterElement.textContent = "";
 	selectedTaskCounterElement.style.padding = 0;
+	userGuidanceMessaage.textContent = "";
+	userGuidanceMessaage.style.opacity = 0;
 	deactivateAllSwitches();
 	removeListenerFromImportantFilter();
 	attachListenerToImportantFilter([], "main", "Empty list");

@@ -12,7 +12,7 @@ themeSelect.addEventListener('change', (e) => {
     applyTheme(e.target.value);
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const savedTheme = localStorage.getItem('selected-theme') || 'dark';
     applyTheme(savedTheme);
 });

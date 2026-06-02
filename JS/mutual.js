@@ -20,6 +20,10 @@ export let taskManagmentPanelMain = document.querySelector(
 
 export let editTaskWindow = document.querySelector(".edit-task__window");
 
+export let userGuidanceMessaage = document.querySelector(
+	".user-guidance__message",
+);
+
 export const deactivateAllSwitches = () => {
 	// Deactivates all switches and enables all of them to be activated again
 	for (const switchElement of allSwitchesElements) {
@@ -37,7 +41,7 @@ export const hideCheckboxes = () => {
 	// Hides all checkboxes
 	let tasks = document.querySelectorAll(".tasks-list__element");
 	tasks.forEach((element) => {
-		let taskIcons = element.lastElementChild
+		let taskIcons = element.lastElementChild;
 		if (
 			taskIcons.lastElementChild.classList.contains(
 				"tasks-list__element__icons__checkbox",
@@ -150,7 +154,7 @@ export const countSelectedTasks = (tasksArray) => {
 };
 
 export const showAllTasksExceptCompleted = () => {
-	// Shows all the tasks except these which are completed 
+	// Shows all the tasks except these which are completed
 	let tasks = document.querySelectorAll(".tasks-list__element");
 	let tasksInProgress = [];
 	for (const task of tasks) {
@@ -189,7 +193,7 @@ export const isDateValid = (dateInput) => {
 };
 
 export const setMinimumDate = (dateInput) => {
-	// Sets minimum date of the input protecting the user from picking the date from the past 
+	// Sets minimum date of the input protecting the user from picking the date from the past
 	const now = new Date();
 	const offset = now.getTimezoneOffset() * 60000;
 	const localISODate = new Date(now - offset).toISOString().split("T")[0];

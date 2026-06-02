@@ -82,6 +82,12 @@
   font-style: normal;
 }
 
+.raleway-black {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -149,6 +155,9 @@ textarea {
   font-size: 2rem;
   background-color: var(--input-background);
   color: var(--pure-white);
+}
+.add-task__window .new-task__title__input::-moz-placeholder {
+  color: var(--add-window-borders);
 }
 .add-task__window .new-task__title__input::placeholder {
   color: var(--add-window-borders);
@@ -241,6 +250,9 @@ textarea {
   color: var(--pure-white);
   resize: none;
   touch-action: auto;
+}
+.add-task__window .new-task__description__textarea::-moz-placeholder {
+  color: var(--add-window-borders);
 }
 .add-task__window .new-task__description__textarea::placeholder {
   color: var(--add-window-borders);
@@ -723,16 +735,44 @@ body {
 }
 
 header {
-  margin-bottom: 5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  width: 100%;
+  max-width: 2560px;
+}
+header .theme-switcher {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 90%;
+  display: flex;
+  height: 40px;
+  margin-top: 1rem;
+  transform: translateX(-50%);
+}
+header .theme-switcher .theme-select {
+  position: absolute;
+  display: block;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--input-background);
+  color: var(--pure-white);
+  border: 2px solid var(--switches-border);
+  padding: 0 0.5rem;
+}
+header .theme-switcher .theme-select__option {
+  font-size: 1.4rem;
 }
 header h1 {
   width: 80%;
   margin: 0 auto;
-  padding-top: 3.3rem;
   font-family: "Poppins", sans-serif;
   font-style: italic;
   font-weight: 600;
   font-size: 6.5rem;
+  padding-top: 4.5rem;
   color: var(--pure-white);
   text-align: center;
   letter-spacing: -1.224px;
@@ -748,33 +788,11 @@ header h2 {
   font-weight: 400;
   letter-spacing: -0.34px;
 }
-header .theme-switcher {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 5px;
-  margin: 5px auto 5px auto;
-  width: 80%;
-}
-header .theme-switcher label {
-  color: var(--pure-white);
-  font-family: "Inter", sans-serif;
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-  letter-spacing: -0.34px;
-}
-header .theme-switcher select {
-  border-radius: 4px;
-  background: var(--input-background);
-  color: var(--pure-white);
-  border: 1px solid var(--switches-border);
-}
 
 main {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 206px);
+  height: calc(100vh - 182px);
   width: 100%;
 }
 main .wrapper {
@@ -783,6 +801,9 @@ main .wrapper {
   height: 100%;
   width: 100%;
   max-width: 2560px;
+}
+main .wrapper .user-guidance {
+  display: none;
 }
 main .wrapper .legend {
   width: 90%;
@@ -978,6 +999,7 @@ main .wrapper .tasks-list__empty {
 main .wrapper .selected-tasks-counter {
   width: 80%;
   margin: 0 auto;
+  margin-top: 0.5rem;
   font-size: 1.8rem;
   color: var(--pure-white);
   text-align: center;
@@ -1022,11 +1044,14 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
 }
 
 @media screen and (min-width: 768px) {
-  body .elipse {
+  .elipse {
     transform: translateX(0) translateY(0);
     left: 40%;
     top: -3%;
     transform: translateX(-50%);
+  }
+  header h1 {
+    padding-top: 3.3rem;
   }
   main .wrapper .legend {
     height: auto;
@@ -1048,11 +1073,14 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
     line-height: 100px;
     font-size: 2rem;
   }
+  main .wrapper .selected-tasks-counter {
+    margin-top: 1.5rem;
+  }
 }
 @media screen and (min-width: 992px) {
-  body .elipse {
+  .elipse {
     transform: translateX(0) translateY(0);
-    left: 45%;
+    left: 40%;
     top: -3%;
     transform: translateX(-50%);
   }
@@ -1073,9 +1101,40 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
 @media screen and (min-width: 1200px) {
   .elipse {
     transform: translateX(0) translateY(0);
-    left: 45%;
+    left: 43%;
     top: -3%;
     transform: translateX(-50%);
+  }
+  header .theme-switcher {
+    width: 80%;
+  }
+  header .theme-switcher .theme-select {
+    width: 140px;
+    padding: 0 1rem;
+  }
+  main .wrapper {
+    position: relative;
+  }
+  main .wrapper .user-guidance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 182px;
+    left: 90%;
+    width: 10%;
+    height: 50vh;
+  }
+  main .wrapper .user-guidance__message {
+    width: 50vh;
+    text-align: center;
+    transform: rotate(90deg);
+    text-transform: uppercase;
+    color: var(--pure-white);
+    font-size: 2.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
   }
   main .wrapper .legend {
     width: 80%;
@@ -1107,5 +1166,11 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
     width: 80%;
   }
 }
-
-/*# sourceMappingURL=mainpage.css.map */
+@media screen and (min-width: 2000px) {
+  .elipse {
+    left: 47%;
+  }
+  main .wrapper .user-guidance__message {
+    font-size: 3rem;
+  }
+}/*# sourceMappingURL=mainpage.css.map */
