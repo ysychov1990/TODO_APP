@@ -57,6 +57,8 @@ let editTaskSaveChangesButton = document.querySelector(
 	".edit-task__button.save-changes",
 );
 
+let editStateValue = document.querySelector(".edit-task__state__value");
+
 let tasksToEdit = null;
 
 let currentlySelectedTask = null;
@@ -64,7 +66,7 @@ let currentlySelectedTask = null;
 let indexOfSelectedTask = null;
 
 const checkForCheckingPermission = (tasksArray, currentCheckbox) => {
-	// Checks if checkbox can be checked or unchecked 
+	// Checks if checkbox can be checked or unchecked
 	for (const task of tasksArray) {
 		let checkbox = task.lastElementChild.lastElementChild;
 		let checkboxIcon = checkbox.firstElementChild.firstElementChild;
@@ -138,6 +140,13 @@ editButton.addEventListener("click", () => {
 					}
 					currentlySelectedTask = null;
 				}
+				if (currentlySelectedTask != null) {
+					startEditingButton.style.opacity = 1;
+					startEditingButton.style.pointerEvents = "auto";
+				} else {
+					startEditingButton.style.opacity = 0.4;
+					startEditingButton.style.pointerEvents = "none";
+				}
 			}
 		});
 	});
@@ -171,6 +180,9 @@ startEditingButton.addEventListener("click", () => {
 
 		editTaskDescriptionTextarea.value = description;
 
+		editStateValue.textContent = "Editing";
+		editStateValue.style.color = "#fff";
+
 		editTaskWindow.classList.add("edit-task__window__show");
 		shadow.style.opacity = 1;
 		shadow.style.zIndex = 1;
@@ -180,6 +192,8 @@ startEditingButton.addEventListener("click", () => {
 exitButton.addEventListener("click", () => {
 	currentlySelectedTask = null;
 	hideCheckboxes();
+	startEditingButton.style.opacity = 0.4;
+	startEditingButton.style.pointerEvents = "none";
 	deactivateAllSwitches();
 	removeListenerFromImportantFilter();
 	attachListenerToImportantFilter([], "main", "Empty list");
@@ -204,6 +218,19 @@ editTaskImportanceCheckboxDiv.addEventListener("click", () => {
 });
 
 editTaskCancelButton.addEventListener("click", () => {
+	let currentlySelectedTaskIcons = currentlySelectedTask.lastElementChild;
+	let currentlySelectedTaskCheckboxIcon =
+		currentlySelectedTaskIcons.lastElementChild.firstElementChild
+			.firstElementChild;
+	currentlySelectedTaskCheckboxIcon.classList.remove("checked");
+	currentlySelectedTask = null;
+	for (const task of tasksToEdit) {
+		if (task.classList.contains("disabled")) {
+			task.classList.remove("disabled");
+		}
+	}
+	startEditingButton.style.opacity = 0.4;
+	startEditingButton.style.pointerEvents = "none";
 	shadow.style.opacity = 0;
 	editTaskWindow.classList.remove("edit-task__window__show");
 	setTimeout(() => {
@@ -219,44 +246,66 @@ editTaskSaveChangesButton.addEventListener("click", () => {
 		editTaskImportanceCheckboxIcon.classList.contains("checked");
 
 	const currentlySelectedTaskTitle = currentlySelectedTask.firstElementChild;
-	currentlySelectedTaskTitle.textContent = title;
-	let currentlySelectedTaskIcons = currentlySelectedTask.lastElementChild;
-	if (importance) {
-		if (
-			!currentlySelectedTaskIcons.querySelector(
-				".tasks-list__element__icons__importance",
-			)
-		) {
-			let importanceDiv = document.createElement("div");
-			let img = document.createElement("img");
-			let taskStatusIcon = currentlySelectedTaskIcons.firstElementChild;
+	const currentlySelectedTaskIcons = currentlySelectedTask.lastElementChild;
+	const currentlySelectedTaskChecboxIcon =
+		currentlySelectedTaskIcons.lastElementChild.firstElementChild
+			.firstElementChild;
 
-			importanceDiv.classList.add("tasks-list__element__icons__importance");
-			img.classList.add("tasks-list__element__icons__importance__icon");
-			img.setAttribute("src", "img/alert-circle.svg");
-
-			importanceDiv.appendChild(img);
-
-			currentlySelectedTask.insertBefore(importanceDiv, taskStatusIcon);
-		}
+	if (title.trim().length == 0) {
+		editStateValue.style.color = "tomato";
+		editStateValue.textContent = "Fill in the title!";
+	} else if (deadline == "") {
+		editStateValue.style.color = "tomato";
+		editStateValue.textContent = "Choose deadline date!";
 	} else {
-		if (
-			currentlySelectedTaskIcons.querySelector(
-				".tasks-list__element__icons__importance",
-			)
-		) {
-			let importanceDiv = currentlySelectedTaskIcons.querySelector(
-				".tasks-list__element__icons__importance",
-			);
-			currentlySelectedTaskIcons.removeChild(importanceDiv);
+		currentlySelectedTaskTitle.textContent = title;
+		if (importance) {
+			if (
+				!currentlySelectedTaskIcons.querySelector(
+					".tasks-list__element__icons__importance",
+				)
+			) {
+				let importanceDiv = document.createElement("div");
+				let img = document.createElement("img");
+				let taskStatusIcon = currentlySelectedTaskIcons.firstElementChild;
+
+				importanceDiv.classList.add("tasks-list__element__icons__importance");
+				img.classList.add("tasks-list__element__icons__importance__icon");
+				img.setAttribute("src", "img/alert-circle.svg");
+
+				importanceDiv.appendChild(img);
+
+				currentlySelectedTaskIcons.insertBefore(importanceDiv, taskStatusIcon);
+			}
+		} else {
+			if (
+				currentlySelectedTaskIcons.querySelector(
+					".tasks-list__element__icons__importance",
+				)
+			) {
+				let importanceDiv = currentlySelectedTaskIcons.querySelector(
+					".tasks-list__element__icons__importance",
+				);
+				currentlySelectedTaskIcons.removeChild(importanceDiv);
+			}
 		}
+
+		editTaskInfo(indexOfSelectedTask, title, description, deadline, importance);
+		editStateValue.textContent = "Task edited successfully";
+		editStateValue.style.color = "lime";
+		currentlySelectedTaskChecboxIcon.classList.remove("checked");
+		for (const task of tasksToEdit) {
+			if (task.classList.contains("disabled")) {
+				task.classList.remove("disabled");
+			}
+		}
+		currentlySelectedTask = null;
+		startEditingButton.style.opacity = 0.4;
+		startEditingButton.style.pointerEvents = "none";
+		shadow.style.opacity = 0;
+		editTaskWindow.classList.remove("edit-task__window__show");
+		setTimeout(() => {
+			shadow.style.zIndex = -1;
+		}, 500);
 	}
-
-	editTaskInfo(indexOfSelectedTask, title, description, deadline, importance);
-
-	shadow.style.opacity = 0;
-	editTaskWindow.classList.remove("edit-task__window__show");
-	setTimeout(() => {
-		shadow.style.zIndex = -1;
-	}, 500);
 });

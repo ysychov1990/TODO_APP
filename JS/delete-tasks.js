@@ -42,6 +42,8 @@ let exitButton = document.querySelector(
 
 let completedTasks = [];
 
+let selectedTasks = 0;
+
 const showAllExceptActive = () => {
 	// Shows all the tasks except these which are active and returns them
 	let tasks = document.querySelectorAll(".tasks-list__element");
@@ -68,6 +70,8 @@ removeButtonMainPanel.addEventListener("click", () => {
 		"Nothing to delete",
 	);
 	taskListIsEmpty(completedTasks, "Nothing to delete");
+	selectedTaskCounterElement.style.padding = "0.5rem 0";
+	selectedTaskCounterElement.textContent = "Don't you see a task that you want to delete? Mark it as completed first!"
 	userGuidanceMessaage.textContent =
 		"Check Checkboxes (white circles) of tasks that you want to remove";
 
@@ -80,7 +84,15 @@ removeButtonMainPanel.addEventListener("click", () => {
 		checkbox.addEventListener("click", (e) => {
 			checkbox.firstElementChild.firstElementChild.classList.toggle("checked");
 			e.stopPropagation();
-			countSelectedTasks(completedTasks);
+			selectedTasks = countSelectedTasks(completedTasks);
+
+			if (selectedTasks > 0) {
+				removeButton.style.opacity = 1;
+				removeButton.style.pointerEvents = "auto";
+			} else {
+				removeButton.style.opacity = 0.4;
+				removeButton.style.opacity = "none";
+			}
 		});
 	});
 	taskManagmentPanelMain.style.display = "none";
@@ -114,7 +126,15 @@ selectAllButton.addEventListener("click", () => {
 			checkbox.classList.add("checked");
 		}
 	}
-	countSelectedTasks(completedTasks);
+	selectedTasks = countSelectedTasks(completedTasks);
+
+	if (selectedTasks > 0) {
+		removeButton.style.opacity = 1;
+		removeButton.style.pointerEvents = "auto";
+	} else {
+		removeButton.style.opacity = 0.4;
+		removeButton.style.opacity = "none";
+	}
 });
 
 removeButton.addEventListener("click", () => {
@@ -148,7 +168,10 @@ removeButton.addEventListener("click", () => {
 		"removing",
 		"Nothing to delete",
 	);
-	countSelectedTasks(completedTasks);
+	selectedTasks = countSelectedTasks(completedTasks);
+	removeButton.style.opacity = 0.4;
+	removeButton.style.pointerEvents = "none";
+
 	taskListIsEmpty(completedTasks, "Nothing to delete");
 });
 
@@ -158,6 +181,9 @@ exitButton.addEventListener("click", () => {
 	selectedTaskCounterElement.style.padding = 0;
 	userGuidanceMessaage.textContent = "";
 	userGuidanceMessaage.style.opacity = 0;
+	selectedTasks = 0;
+	removeButton.style.opacity = 0.4;
+	removeButton.style.pointerEvents = "none";
 	deactivateAllSwitches();
 	removeListenerFromImportantFilter();
 	attachListenerToImportantFilter([], "main", "Empty list");

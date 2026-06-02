@@ -530,7 +530,6 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 1rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--pure-white);
 }
@@ -661,6 +660,11 @@ textarea {
 .edit-task__window .edit-task__buttons .edit-task__button.save-changes {
   background-color: var(--accept-button);
 }
+.edit-task__window .edit-task__state {
+  margin-top: 1rem;
+  font-size: 1.7rem;
+  color: var(--pure-white);
+}
 
 .edit-task__window__show {
   transform: translateX(111%) translateY(-50%);
@@ -680,6 +684,10 @@ textarea {
   }
   .edit-task__window .edit-task__importance__info {
     display: block;
+  }
+  .edit-task__window .edit-task__state {
+    margin-top: 2rem;
+    font-size: 2.5rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -960,7 +968,7 @@ main .wrapper .tasks-list__element__icons__importance__icon {
   height: 25px;
 }
 main .wrapper .tasks-list__element__icons__checkbox {
-  padding: 0 1rem;
+  padding: 22px 1rem;
   overflow: hidden;
 }
 main .wrapper .tasks-list__element__icons__checkbox__icon-box {
@@ -1032,6 +1040,12 @@ main .wrapper .task-managment-panels .task-managment-panel .task-manager img {
   height: 100%;
   filter: invert(var(--panel-buttons-inversion));
 }
+main .wrapper .task-managment-panels .task-managment-panel .task-manager.check-tasks,
+main .wrapper .task-managment-panels .task-managment-panel .task-manager.remove-tasks,
+main .wrapper .task-managment-panels .task-managment-panel .task-manager.start-editing {
+  opacity: 0.4;
+  pointer-events: none;
+}
 main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel__checking {
   display: none;
 }
@@ -1073,6 +1087,21 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
     line-height: 100px;
     font-size: 2rem;
   }
+  main .wrapper .tasks-list__element__icons__status__icon {
+    width: 35px;
+    height: 35px;
+  }
+  main .wrapper .tasks-list__element__icons__importance__icon {
+    width: 35px;
+    height: 35px;
+  }
+  main .wrapper .tasks-list__element__icons__checkbox {
+    padding: 32px 1rem;
+  }
+  main .wrapper .tasks-list__element__icons__checkbox__icon-box {
+    width: 35px;
+    height: 35px;
+  }
   main .wrapper .selected-tasks-counter {
     margin-top: 1.5rem;
   }
@@ -1092,6 +1121,9 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
     height: 120px;
     line-height: 120px;
     font-size: 2.2rem;
+  }
+  main .wrapper .tasks-list__element__icons__checkbox {
+    padding: 42px 1rem;
   }
   main .wrapper .task-managment-panels .task-managment-panel .task-manager {
     width: 55px;
@@ -1161,6 +1193,9 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
   main .wrapper .tasks-list__element__name {
     height: 140px;
     line-height: 140px;
+  }
+  main .wrapper .tasks-list__element__icons__checkbox {
+    padding: 52px 1rem;
   }
   main .wrapper .task-managment-panels {
     width: 80%;

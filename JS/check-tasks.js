@@ -42,6 +42,8 @@ let exitButton = document.querySelector(
 
 let tasksInProgress = [];
 
+let selectedTasks = 0;
+
 checkTasksButtonMainPanel.addEventListener("click", () => {
 	deactivateAllSwitches();
 	//Hides unnecessary switches during task checking procedure
@@ -66,7 +68,15 @@ checkTasksButtonMainPanel.addEventListener("click", () => {
 		checkbox.addEventListener("click", (e) => {
 			checkbox.firstElementChild.firstElementChild.classList.toggle("checked");
 			e.stopPropagation();
-			countSelectedTasks(tasksInProgress);
+			selectedTasks = countSelectedTasks(tasksInProgress);
+
+			if (selectedTasks > 0) {
+				checkTasksButton.style.opacity = 1;
+				checkTasksButton.style.pointerEvents = "auto";
+			} else {
+				checkTasksButton.style.opacity = 0.4;
+				checkTasksButton.style.pointerEvents = "none";
+			}
 		});
 	});
 	//Hides the main task managment panel and shows the one responsible for task checking
@@ -101,7 +111,15 @@ checkAllButton.addEventListener("click", () => {
 			checkbox.classList.add("checked");
 		}
 	}
-	countSelectedTasks(tasksInProgress);
+	selectedTasks = countSelectedTasks(tasksInProgress);
+
+	if (selectedTasks > 0) {
+		checkTasksButton.style.opacity = 1;
+		checkTasksButton.style.pointerEvents = "auto";
+	} else {
+		checkTasksButton.style.opacity = 0.4;
+		checkTasksButton.style.pointerEvents = "none";
+	}
 });
 
 checkTasksButton.addEventListener("click", () => {
@@ -145,7 +163,9 @@ checkTasksButton.addEventListener("click", () => {
 		"checking",
 		"Nothing to mark as completed",
 	);
-	countSelectedTasks(tasksInProgress);
+	selectedTasks = countSelectedTasks(tasksInProgress);
+	checkTasksButton.style.opacity = 0.4
+	checkTasksButton.style.pointerEvents = "none"
 	taskListIsEmpty(tasksInProgress, "Nothing to mark as completed");
 });
 
@@ -154,6 +174,11 @@ exitButton.addEventListener("click", () => {
 	taskManagmentPanelMain.style.display = "flex";
 	selectedTaskCounterElement.textContent = "";
 	selectedTaskCounterElement.style.padding = 0;
+
+	selectedTasks = 0;
+	checkTasksButton.style.opacity = 0.4
+	checkTasksButton.style.pointerEvents = "none"
+
 	userGuidanceMessaage.style.opacity = 0;
 	userGuidanceMessaage.textContent = "";
 	hideCheckboxes();

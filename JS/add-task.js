@@ -200,7 +200,7 @@ const hideAddTaskWindow = () => {
 		addTaskWindow.classList.remove("add-task__window__show");
 		setTimeout(() => {
 			shadow.style.zIndex = -1;
-		}, 300);
+		}, 500);
 	}
 };
 

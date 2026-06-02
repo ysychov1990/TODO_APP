@@ -285,7 +285,7 @@ main {
 						}
 					}
 					&__checkbox {
-						padding: 0 1rem;
+						padding: 22px 1rem;
 						// height: 70px;
 						// align-content: center;
 						overflow: hidden;
@@ -362,6 +362,12 @@ main {
 						filter: invert(colors.$panel-buttons-inversion);
 					}
 				}
+				.task-manager.check-tasks,
+				.task-manager.remove-tasks,
+				.task-manager.start-editing {
+					opacity: 0.4;
+					pointer-events: none;
+				}
 			}
 			.task-managment-panel.task-managment-panel__checking {
 				display: none;
@@ -420,6 +426,29 @@ main {
 						line-height: 100px;
 						font-size: 2rem;
 					}
+					&__icons {
+						&__status {
+							&__icon {
+								width: 35px;
+								height: 35px;
+							}
+						}
+						&__importance {
+							&__icon {
+								width: 35px;
+								height: 35px;
+							}
+						}
+						&__checkbox {
+							padding: 32px 1rem;
+
+							&__icon-box {
+								width: 35px;
+								height: 35px;
+							}
+						}
+					}
+
 					// &__status {
 					// 	height: 100px;
 					// }
@@ -459,6 +488,11 @@ main {
 						height: 120px;
 						line-height: 120px;
 						font-size: 2.2rem;
+					}
+					&__icons {
+						&__checkbox {
+							padding: 42px 1rem;
+						}
 					}
 					// &__status {
 					// 	height: 120px;
@@ -552,6 +586,11 @@ main {
 						height: 140px;
 						line-height: 140px;
 					}
+					&__icons {
+						&__checkbox {
+							padding: 52px 1rem;
+						}
+					}
 					// &__status {
 					// 	height: 140px;
 					// }
@@ -573,10 +612,10 @@ main {
 	.elipse {
 		left: 47%;
 	}
-	main{
-		.wrapper{
-			.user-guidance{
-				&__message{
+	main {
+		.wrapper {
+			.user-guidance {
+				&__message {
 					font-size: 3rem;
 				}
 			}

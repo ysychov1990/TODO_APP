@@ -53,7 +53,6 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
-			margin-bottom: 1rem;
 			padding: 1rem 0;
 			border-bottom: 1px solid colors.$pure-white;
 			&__label {
@@ -120,7 +119,7 @@
 					opacity: 1;
 				}
 			}
-			&__info{
+			&__info {
 				display: none;
 				width: 40%;
 				text-align: center;
@@ -185,6 +184,11 @@
 				background-color: colors.$accept-button;
 			}
 		}
+		&__state {
+			margin-top: 1rem;
+			font-size: 1.7rem;
+			color: colors.$pure-white;
+		}
 	}
 }
 .edit-task__window__show {
@@ -200,12 +204,17 @@
 @media screen and (min-width: 768px) {
 	.edit-task__window {
 		height: 60vh;
-		.edit-task{
-			&__importance{
+		.edit-task {
+			&__importance {
 				justify-content: unset;
-				&__info{
+				&__info {
 					display: block;
 				}
+			}
+
+			&__state {
+				margin-top: 2rem;
+				font-size: 2.5rem;
 			}
 		}
 	}
@@ -228,8 +237,8 @@
 		width: 80%;
 		height: 65vh;
 		.edit-task {
-			&__importance{
-				&__info{
+			&__importance {
+				&__info {
 					font-size: 1.6rem;
 				}
 			}

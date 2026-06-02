@@ -151,6 +151,7 @@ export const countSelectedTasks = (tasksArray) => {
 	}
 	selectedTaskCounterElement.textContent = `Selected tasks: ${selectedTaskCounter}`;
 	selectedTaskCounterElement.style.padding = "0.5rem 0";
+	return selectedTaskCounter
 };
 
 export const showAllTasksExceptCompleted = () => {
