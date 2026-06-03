@@ -1,5 +1,6 @@
 import { getTaskInfo, editTaskInfo } from "./local-storage-manager.js";
 import {
+	userGuidanceMessaage,
 	deactivateAllSwitches,
 	hideCheckboxes,
 	hideUnnecessarySwitches,
@@ -93,6 +94,11 @@ editButton.addEventListener("click", () => {
 	tasksToEdit = showAllTasksExceptCompleted();
 	attachListenerToImportantFilter(tasksToEdit, "editing", "No tasks to edit");
 	taskListIsEmpty(tasksToEdit, "No tasks to edit");
+	userGuidanceMessaage.textContent =
+		"Select a task and start editing by clicking the icon on the left side";
+
+	userGuidanceMessaage.style.opacity = 1;
+
 	showCheckboxes(tasksToEdit);
 	let allCheckboxes = document.querySelectorAll(
 		".tasks-list__element__icons__checkbox",
@@ -194,6 +200,8 @@ exitButton.addEventListener("click", () => {
 	hideCheckboxes();
 	startEditingButton.style.opacity = 0.4;
 	startEditingButton.style.pointerEvents = "none";
+	userGuidanceMessaage.textContent = "";
+	userGuidanceMessaage.style.opacity = 0;
 	deactivateAllSwitches();
 	removeListenerFromImportantFilter();
 	attachListenerToImportantFilter([], "main", "Empty list");

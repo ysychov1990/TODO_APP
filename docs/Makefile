@@ -3,11 +3,12 @@ SOURCES = 0_header.md \
 		  2_analiza_użytkowników.md \
 		  3_tworzenie_prototypu.md \
 		  4_tworzenie_prototypu_hi-fi.md \
-		  5_testy_użyteczności.md
+		  5_testy_użyteczności.md \
+		  6_implementacja_frontendowa.md
 # Nazwa pliku końcowego
 OUTPUT = dokumentacja.pdf
 
-ENGINE = xelatex
+ENGINE = pdflatex
 
 all: $(OUTPUT)
 
