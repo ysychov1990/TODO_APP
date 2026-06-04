@@ -18,6 +18,9 @@ linkcolor: blue
 header-includes:
     - \usepackage{graphicx}
     - \usepackage{enumitem}
+    - \usepackage[T1]{fontenc}
+    - \renewcommand*\familydefault{\sfdefault}
+#    - \usepackage{dejavu}
 #    - \usepackage{column}
 ---
 
