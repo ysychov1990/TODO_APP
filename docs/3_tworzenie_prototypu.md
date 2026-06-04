@@ -10,7 +10,7 @@ Zanim przystąpiono do szkicowania, opracowano ścieżkę użytkownika (User Flo
 ## Szkice Low-Fidelity Wireframes
 Do projektowania prototypów w niskiej rozdzielczości był wybrany program [Frame0](http://frame0.app). Program jest dostępny na OS Windows, GNU/Linux oraz Mac. Jest w wersji bezpłatnej podstawowej oraz płatnej rozszerzonej. Posiada intuicyjny intefrejs, sterowanie podobne do Balsamiq i Figma. Dysponuje wystarczającą biblieteką standardowych elementów interfejsu.
 
-Na tym etapie przygotowano szkice ramowe (wireframes) dla kluczowych ekranów aplikacji, z uwzględnieniem wersji mobilnej oraz desktopowej. [GitHub](https://github.com/ysychov1990/TODO_APP/tree/main/frame0) (Smartphone.f0 i Desktop1.f0)
+Na tym etapie przygotowano szkice ramowe (wireframes) dla kluczowych ekranów aplikacji, z uwzględnieniem wersji mobilnej oraz desktopowej. [GitHub](https://github.com/ysychov1990/TODO_APP/tree/main/frame0) (Smartphone2.f0 i Desktop2.f0)
 
 \begin{minipage}[t]{0.5\textwidth}
 \vspace{0pt}
