@@ -4,12 +4,12 @@ W tym repozytorium znajdują się wszystkie pliki potrzebne do przedstawienia pr
 
 ## Dokumentacja
 
-Folder [docs/][./docs/]: Pliki dokumentacji zarówno w formacie .md, jak i .pdf.
+Folder [docs/][docs/]: Pliki dokumentacji zarówno w formacie \*.md, jak i \*.pdf.
 
 
 ## Makiety Low-Fidelity 
 
-Folder [frame0/][./frame0/]: Wszystkie makiety Low-Fidelity znajdują się tutaj. Nazwa pliku sugeruje czy jest to design na urządzenia mobilne, czy komputery
+Folder [frame0/][frame0/]: Wszystkie makiety Low-Fidelity znajdują się tutaj. Nazwa pliku sugeruje czy jest to design na urządzenia mobilne, czy komputery.
 
 
 ## Implementacja frontendowa
