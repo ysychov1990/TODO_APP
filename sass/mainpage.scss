@@ -104,7 +104,7 @@ header {
 main {
 	display: flex;
 	flex-direction: column;
-	height: calc(100vh - 182px);
+	height: calc(100vh - 210px);
 	width: 100%;
 	.wrapper {
 		display: flex;
@@ -535,6 +535,7 @@ main {
 		}
 	}
 	main {
+		height: calc(100vh - 182px);
 		.wrapper {
 			position: relative;
 			.user-guidance {

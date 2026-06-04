@@ -800,7 +800,7 @@ header h2 {
 main {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 182px);
+  height: calc(100vh - 210px);
   width: 100%;
 }
 main .wrapper {
@@ -1143,6 +1143,9 @@ main .wrapper .task-managment-panels .task-managment-panel.task-managment-panel_
   header .theme-switcher .theme-select {
     width: 140px;
     padding: 0 1rem;
+  }
+  main {
+    height: calc(100vh - 182px);
   }
   main .wrapper {
     position: relative;
