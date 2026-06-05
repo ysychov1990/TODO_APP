@@ -5,7 +5,8 @@ SOURCES = 0_header.md \
 		  4_tworzenie_prototypu_hi-fi.md \
 		  5_testy_użyteczności.md \
 		  6_implementacja_frontendowa.md \
-		  7_testy_optymalizacja.md
+		  7_testy_optymalizacja.md \
+		  999_footer.md
 # Nazwa pliku końcowego
 OUTPUT = dokumentacja.pdf
 

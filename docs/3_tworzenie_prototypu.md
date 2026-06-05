@@ -6,7 +6,7 @@ Zanim przystąpiono do szkicowania, opracowano ścieżkę użytkownika (User Flo
 2. **Akcja dodawania**: Przejście do formularza, wprowadzenie danych i powrót z informacją zwrotną.
 3. **Zakończenie zadania**: Wybór zadań z listy do ukończenia.
 3. **Zarządzanie zadaniem**: Możliwość edycji tytułu zadania, opisu, daty końcowej.
-4. **Usunięcie wykonanych zadań**: Pogląd wykonanych zadań z podalszym ich usunięciem.
+4. **Usunięcie wykonanych zadań**: Pogląd wykonanych zadań z możliwością usunięcia.
 
 \begin{minipage}[t]{0.95\textwidth}
 \vspace{0pt}
@@ -23,14 +23,14 @@ Zanim przystąpiono do szkicowania, opracowano ścieżkę użytkownika (User Flo
 \end{minipage}
 
 ## Szkice Low-Fidelity Wireframes
-Do projektowania prototypów w niskiej rozdzielczości był wybrany program [Frame0](http://frame0.app). Program jest dostępny na OS Windows, GNU/Linux oraz Mac. Jest w wersji bezpłatnej podstawowej oraz płatnej rozszerzonej. Posiada intuicyjny intefrejs, sterowanie podobne do Balsamiq i Figma. Dysponuje wystarczającą biblieteką standardowych elementów interfejsu.
+Do projektowania prototypów w niskiej rozdzielczości wybrano program [Frame0](http://frame0.app). Program jest dostępny na OS Windows, GNU/Linux oraz Mac. Jest w wersji bezpłatnej podstawowej oraz płatnej rozszerzonej. Posiada intuicyjny interfejs, sterowanie podobne do Balsamiq i Figma. Dysponuje wystarczającą biblioteką standardowych elementów interfejsu.
 
 Na tym etapie przygotowano szkice ramowe (wireframes) dla kluczowych ekranów aplikacji, z uwzględnieniem wersji mobilnej oraz desktopowej. [GitHub](https://github.com/ysychov1990/TODO_APP/tree/main/frame0) (Smartphone\*.f0 i Desktop\*.f0)
 
 \begin{minipage}[t]{0.5\textwidth}
 \vspace{0pt}
 \subsubsection*{Wersja Mobilna}
-Zgodnie z potrzebami \textbf{Persony 2 i 3}, wersja mobilna stawia na obsługę "w biegu":
+Zgodnie z potrzebami \textbf{Persony 2 i 3} wersja mobilna stawia na obsługę "w biegu":
 
 \begin{itemize}[label=\textbullet, topsep=10pt]
     \item Interfejs jednokolumnowy z dużymi obszarami klikalnymi (tzw. touch targets).
@@ -55,10 +55,10 @@ Zgodnie z potrzebami \textbf{Persony 2 i 3}, wersja mobilna stawia na obsługę 
 \begin{minipage}[t]{0.5\textwidth}
 \vspace{0pt}
 \subsubsection*{Wersja Desktop}
-Według potrzeb \textbf{Persony 1 oraz 2} Projekt skupia się na wykorzystaniu szerokości ekranu, aby umożliwić:
+Według potrzeb \textbf{Persony 1 oraz 2} projekt skupia się na wykorzystaniu szerokości ekranu, aby umożliwić:
 
 \begin{itemize}[label=\textbullet, topsep=10pt]
-    \item Podobieństwo wersji dekstopowej i wersji mobilnej wraz z łatwością użytkowania.
+    \item Podobieństwo wersji desktopowej i wersji mobilnej wraz z łatwością użytkowania.
     \item Sidebar z osobnym miejscem na dodanie lub przegląd zadań oraz główny panel z listą zadań.
     \item Dodatkowe wskazówki ekranowe.
 \end{itemize}
