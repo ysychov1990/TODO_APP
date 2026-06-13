@@ -5,16 +5,3 @@ Został opracowany układ komponentów (np. listy zadań i paska narzędzi) z za
 Design był zaprojektowany dla kilku typowych układów ekranowych, Najwięcej uwagi poświęcono układowi na smartphone `(402x874)` i desktop `(1440x1024)`.
 Udało się stworzyć realistyczny i w pełni interaktywny prototyp gotowy do testowania. Spójność komponentów została zapewniona przez mapowanie tokenów projektowych z Figmy na zmienne SASS w plikach `*.scss`
 
-\begin{minipage}[t]{0.75\textwidth}
-\vspace{0pt}
-\includegraphics[width=\textwidth]{figma-1.png}
-\par\vspace{5pt}
-\centering \small \textit{Prototyp Hi-Fidelity interfejsu desktop.}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.23\textwidth}
-\vspace{0pt}
-\includegraphics[width=\textwidth]{figma-2.png}
-\par\vspace{5pt}
-\centering \small \textit{Prototyp Hi-Fidelity interfejsu mobilnego.}
-\end{minipage}
